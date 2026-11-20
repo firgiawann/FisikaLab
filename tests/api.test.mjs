@@ -17,7 +17,7 @@ async function api(path, { method = 'GET', body, token } = {}) {
 
 before(async () => {
   proc = spawn(process.execPath, ['--no-warnings', 'server.js'], {
-    env: { ...process.env, PORT: String(PORT), DB_PATH: `test-.sqlite` },
+    env: { ...process.env, PORT: String(PORT), DB_PATH: `test-${Date.now()}.sqlite` },
     stdio: 'ignore'
   });
   for (let i = 0; i < 40; i++) {
